@@ -1,27 +1,44 @@
 
 #include <algorithm>
 
+enum class GameMode {
+    Creative,
+    Survival
+};
+
 struct PlayerHealth {
+    GameMode mode = GameMode::Creative;
+
     int maxHealth = 100;
     int health = 100;
+
     bool isDead = false;
 
+    bool hasInfiniteHealth() const {
+        return mode == GameMode::Creative;
+    }
+
+    bool canTakeDamage() const {
+        return mode == GameMode::Survival && !isDead;
+    }
+
     void takeDamage(int damage) {
-        if (isDead || damage <= 0)
+        if (!canTakeDamage() || damage <= 0)
             return;
 
         health = std::max(0, health - damage);
 
-        if (health == 0) {
+        if (health == 0)
             isDead = true;
-        }
     }
 
-    void heal(int amount) {
-        if (isDead || amount <= 0)
-            return;
+    void setGameMode(GameMode newMode) {
+        mode = newMode;
 
-        health = std::min(maxHealth, health + amount);
+        if (mode == GameMode::Creative) {
+            health = maxHealth;
+            isDead = false;
+        }
     }
 
     void respawn() {
@@ -31,4 +48,5 @@ struct PlayerHealth {
 };
 
 PlayerHealth playerHealth;
+
 
