@@ -1,26 +1,7 @@
 
-#include <string>
-#include <vector>
+#include "creative_inventory.h"
 
-enum class CreativeCategory {
-    Nature,
-    Construction,
-    Equipment,
-    Tools,
-    Combat,
-    Food,
-    Redstone,
-    Decoration,
-    Nether,
-    End,
-    Potions,
-    Miscellaneous
-};
-
-struct CreativeTab {
-    CreativeCategory category;
-    std::string name;
-};
+#include <algorithm>
 
 std::vector<CreativeTab> creativeTabs = {
     {CreativeCategory::Nature, "Natureza"},
@@ -40,4 +21,6 @@ std::vector<CreativeTab> creativeTabs = {
 const std::vector<CreativeTab>& getCreativeTabs() {
     return creativeTabs;
 }
+
+
 
