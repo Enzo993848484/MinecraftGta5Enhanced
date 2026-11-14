@@ -1,4 +1,4 @@
-
+E ASSIM CODIGO 
 #pragma once
 
 #include <string>
@@ -10,6 +10,6 @@ struct MinecraftItem {
     std::string category;
 };
 
-std::vector<MinecraftItem> minecraftItems = {
+const std::vector<MinecraftItem>& getMinecraftItems();
 
 
