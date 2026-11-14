@@ -1,22 +1,15 @@
 
-#include <string>
-#include <vector>
+#include "blocks.h"
 
-struct Block {
-    std::string id;
-    std::string name;
-    std::string category;
-};
-
-std::vector<Block> minecraftBlocks = {
+const std::vector<Block> minecraftBlocks = {
     {"minecraft:grass_block", "Bloco de grama", "Natureza"},
     {"minecraft:dirt", "Terra", "Natureza"},
     {"minecraft:stone", "Pedra", "Natureza"},
     {"minecraft:cobblestone", "Pedregulho", "Natureza"},
     {"minecraft:sand", "Areia", "Natureza"},
     {"minecraft:gravel", "Cascalho", "Natureza"},
-    {"minecraft:oak_log", "Tronco de carvalho", "Madeira"},
-    {"minecraft:oak_planks", "Tábuas de carvalho", "Madeira"},
+    {"minecraft:oak_log", "Tronco de carvalho", "Madeiras"},
+    {"minecraft:oak_planks", "Tábuas de carvalho", "Madeiras"},
     {"minecraft:glass", "Vidro", "Construção"},
     {"minecraft:bricks", "Tijolos", "Construção"},
     {"minecraft:iron_block", "Bloco de ferro", "Minérios e metais"},
@@ -29,4 +22,9 @@ std::vector<Block> minecraftBlocks = {
     {"minecraft:bookshelf", "Estante de livros", "Decoração"},
     {"minecraft:crafting_table", "Bancada de trabalho", "Funções"}
 };
+
+const std::vector<Block>& getMinecraftBlocks() {
+    return minecraftBlocks;
+}
+
 
